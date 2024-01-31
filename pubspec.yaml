@@ -1,7 +1,7 @@
 name: theme_manager_plus
-description: "A new Flutter package project."
+description: "Simply create a class for light and dark themes, tweak your desired colors and styles, and enjoy a seamless and modern app"
 version: 0.0.1
-homepage:
+repository: "https://github.com/Oauth-Celestial/theme_manager_plus"
 
 environment:
   sdk: '>=3.2.3 <4.0.0'

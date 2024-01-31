@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
 class CustomTheme<T> extends InheritedWidget {
-  CustomTheme(
+  const CustomTheme(
       {Key? key,
       required this.child,
       required this.currentTheme,
@@ -9,6 +9,7 @@ class CustomTheme<T> extends InheritedWidget {
       this.isDarkMode = false})
       : super(key: key, child: child);
   @override
+  // ignore: overridden_fields
   final Widget child; // Child which needs to be changed
   // Holds to the App State
   final T
@@ -29,7 +30,7 @@ class ThemeManagerPlus<T> extends StatefulWidget {
   final Widget child;
 
   /// The current  theme of the app
-  final T currentTheme;
+  T currentTheme;
 
   /// Light theme data
   T? lightTheme;
