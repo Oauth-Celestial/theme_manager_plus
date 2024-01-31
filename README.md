@@ -3,6 +3,8 @@
 Say goodbye to the hassle of remembering complex color schemes! With Theme Manager Plus, managing themes is a breeze. Simply create a class for light and dark themes, tweak your desired colors and styles, and enjoy a seamless and modern app experience. No more headaches, just easy and efficient theme management!
 
 
+![simulator-screen-recording-iphone-15-pro-2024-01-31-at-214253_5zDSZU03-ezgif com-video-to-gif-converter](https://github.com/Oauth-Celestial/theme_manager_plus/assets/119127289/e471eb1c-69de-4aff-9344-78fcee6e8df8)
+
 
 
 ## Getting started
@@ -58,6 +60,14 @@ ThemeManagerPlus.of<AppTheme>(context).isDarkMode
 ```
 
 
+## Contribution 🤝
+
+Feel free to contribute and open pull requests. 🙌
+
+
+## Issues and Feedback 🐛
+
+Feel free to post a feature requests or report a bug [here](https://github.com/Oauth-Celestial/theme_manager_plus/issues).
 
 
 
