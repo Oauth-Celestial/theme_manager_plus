@@ -11,7 +11,7 @@ Say goodbye to the hassle of remembering complex color schemes! With Theme Manag
 First, add theme_manager_plus as a dependency in your pubspec.yaml file
 
 ```dart
-theme_manager_plus: 0.0.1
+theme_manager_plus: ^0.0.2
 ```
 
 

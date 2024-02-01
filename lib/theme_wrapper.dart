@@ -1,16 +1,18 @@
+// ignore_for_file: must_be_immutable
+
 import 'package:flutter/material.dart';
 
 class CustomTheme<T> extends InheritedWidget {
   const CustomTheme(
       {Key? key,
-      required this.child,
+      required Widget child,
       required this.currentTheme,
       required this.changeCurrentTheme,
       this.isDarkMode = false})
       : super(key: key, child: child);
-  @override
+
   // ignore: overridden_fields
-  final Widget child; // Child which needs to be changed
+  // Child which needs to be changed
   // Holds to the App State
   final T
       currentTheme; // passed as generic so we can use it with other type in future
