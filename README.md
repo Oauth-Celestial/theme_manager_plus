@@ -2,18 +2,15 @@
 
 Say goodbye to the hassle of remembering complex color schemes! With Theme Manager Plus, managing themes is a breeze. Simply create a class for light and dark themes, tweak your desired colors and styles, and enjoy a seamless and modern app experience. No more headaches, just easy and efficient theme management!
 
-
 ![simulator-screen-recording-iphone-15-pro-2024-01-31-at-214253_5zDSZU03-ezgif com-video-to-gif-converter](https://github.com/Oauth-Celestial/theme_manager_plus/assets/119127289/e471eb1c-69de-4aff-9344-78fcee6e8df8)
 
-
-
 ## Getting started
+
 First, add theme_manager_plus as a dependency in your pubspec.yaml file
 
 ```dart
-theme_manager_plus: ^0.0.2
+theme_manager_plus: ^[version]
 ```
-
 
  Create Your own class which defines colors and styles which you have to inject e.g
 
@@ -38,36 +35,30 @@ home:ThemeManagerPlus<AppTheme>(
     );
 ```
 
-Access data from theme 
+Access data from theme
 
 ```dart
- ThemeManagerPlus.of<AppTheme>(context).currentTheme.backgroundColor,
+context.themeOf<AppTheme>()?.backgroundColor
 ```
 
-**Note:** Replace your class name with the custom class name 
-
+**Note:** Replace your class name with the custom class name
 
 **Change current theme with theme manager plus**
 
 ```dart
-ThemeManagerPlus.of<AppTheme>(context).changeCurrentTheme();
+ context.changeCurrentTheme<AppTheme>();
 ```
 
 **Check current theme is dark theme**
 
 ```dart
-ThemeManagerPlus.of<AppTheme>(context).isDarkMode
+bool isDarkMode context.isDarkMode<AppTheme>();
 ```
-
 
 ## Contribution 🤝
 
 Feel free to contribute and open pull requests. 🙌
 
-
 ## Issues and Feedback 🐛
 
 Feel free to post a feature requests or report a bug [here](https://github.com/Oauth-Celestial/theme_manager_plus/issues).
-
-
-

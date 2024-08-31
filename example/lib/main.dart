@@ -1,7 +1,7 @@
 import 'package:example/app_theme_color.dart';
 import 'package:example/theme_model.dart';
 import 'package:flutter/material.dart';
-import 'package:theme_manager_plus/theme_wrapper.dart';
+import 'package:theme_manager_plus/theme_manager_plus.dart';
 
 void main() {
   runApp(const MyApp());
@@ -79,19 +79,17 @@ class _MyHomePageState extends State<MyHomePage> {
     // fast, so that you can just rebuild anything that needs updating rather
     // than having to individually change instances of widgets.
     return Scaffold(
-      backgroundColor:
-          ThemeManagerPlus.of<AppTheme>(context).currentTheme.backgroundColor,
+      backgroundColor: context.themeOf<AppTheme>()?.backgroundColor,
       appBar: AppBar(
         // TRY THIS: Try changing the color here to a specific color (to
         // Colors.amber, perhaps?) and trigger a hot reload to see the AppBar
         // change color while the other colors stay the same.
-        backgroundColor:
-            ThemeManagerPlus.of<AppTheme>(context).currentTheme.backgroundColor,
+        backgroundColor: context.themeOf<AppTheme>()?.backgroundColor,
         // Here we take the value from the MyHomePage object that was created by
         // the App.build method, and use it to set our appbar title.
         title: Text(
           widget.title,
-          style: ThemeManagerPlus.of<AppTheme>(context).currentTheme.heading,
+          style: context.themeOf<AppTheme>()?.heading,
         ),
       ),
       body: Center(
@@ -99,22 +97,20 @@ class _MyHomePageState extends State<MyHomePage> {
           mainAxisAlignment: MainAxisAlignment.center,
           children: <Widget>[
             Switch(
-              value: ThemeManagerPlus.of<AppTheme>(context).isDarkMode,
+              value: context.isDarkMode<AppTheme>(),
               onChanged: (value) {
-                ThemeManagerPlus.of<AppTheme>(context).changeCurrentTheme();
+                context.changeCurrentTheme<AppTheme>();
               },
               activeColor:
                   Colors.blue, // Change the color when the switch is ON
             ),
             Text(
               'You have pushed the button this many times:',
-              style:
-                  ThemeManagerPlus.of<AppTheme>(context).currentTheme.heading,
+              style: context.themeOf<AppTheme>()?.heading,
             ),
             Text(
               '$_counter',
-              style:
-                  ThemeManagerPlus.of<AppTheme>(context).currentTheme.heading,
+              style: context.themeOf<AppTheme>()?.heading,
             ),
           ],
         ),

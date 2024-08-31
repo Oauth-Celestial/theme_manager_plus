@@ -1,6 +1,6 @@
 // ignore_for_file: must_be_immutable
 
-import 'package:flutter/material.dart';
+part of 'theme_manager_plus.dart';
 
 class CustomTheme<T> extends InheritedWidget {
   const CustomTheme(
@@ -35,22 +35,22 @@ class ThemeManagerPlus<T> extends StatefulWidget {
   T currentTheme;
 
   /// Light theme data
-  T? lightTheme;
+  T lightTheme;
 
   /// dark theme data
-  T? darkTheme;
+  T darkTheme;
   bool isDarkMode;
 
   ThemeManagerPlus(
       {Key? key,
       required this.child,
       required this.currentTheme,
-      this.lightTheme,
+      required this.lightTheme,
       this.isDarkMode = false,
-      this.darkTheme})
+      required this.darkTheme})
       : super(key: key);
 
-  /// Access the current inject state
+  @Deprecated('context.themeOf<T>() instead')
   static CustomTheme<T> of<T>(BuildContext context) {
     return context.dependOnInheritedWidgetOfExactType<CustomTheme<T>>()!;
   }
@@ -60,9 +60,9 @@ class ThemeManagerPlus<T> extends StatefulWidget {
 }
 
 class ThemeManagerPlusState<T> extends State<ThemeManagerPlus<T>> {
-  T? currentTheme;
-  T? lightTheme;
-  T? darkTheme;
+  late T currentTheme;
+  late T lightTheme;
+  late T darkTheme;
 
   @override
   void initState() {
@@ -94,7 +94,30 @@ class ThemeManagerPlusState<T> extends State<ThemeManagerPlus<T>> {
       changeCurrentTheme: changeTheme,
       currentTheme: currentTheme!,
       isDarkMode: widget.isDarkMode,
-      child: widget.child,
+      child: Builder(builder: (context) {
+        return widget.child;
+      }),
     );
+  }
+}
+
+extension ThemeExtension on BuildContext {
+  T? themeOf<T>() {
+    // return ThemeManagerPlus.of<T>(this).currentTheme;
+    return dependOnInheritedWidgetOfExactType<CustomTheme<T>>()?.currentTheme;
+  }
+
+  bool isDarkMode<T>() {
+    final data = dependOnInheritedWidgetOfExactType<CustomTheme<T>>();
+    if (data == null) {
+      return false;
+    }
+    return ThemeManagerPlus.of<T>(this).isDarkMode;
+  }
+
+  changeCurrentTheme<T>() {
+    final data = dependOnInheritedWidgetOfExactType<CustomTheme<T>>();
+    print(data);
+    dependOnInheritedWidgetOfExactType<CustomTheme<T>>()?.changeCurrentTheme();
   }
 }
