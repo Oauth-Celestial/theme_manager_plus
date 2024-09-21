@@ -69,6 +69,7 @@ class ThemeManagerPlusState<T> extends State<ThemeManagerPlus<T>> {
     currentTheme = widget.currentTheme;
     lightTheme = widget.lightTheme;
     darkTheme = widget.darkTheme;
+    widget.isDarkMode = widget.currentTheme == widget.darkTheme;
 
     super.initState();
   }
@@ -112,7 +113,8 @@ extension ThemeExtension on BuildContext {
     if (data == null) {
       return false;
     }
-    return ThemeManagerPlus.of<T>(this).isDarkMode;
+
+    return data.isDarkMode;
   }
 
   changeCurrentTheme<T>() {

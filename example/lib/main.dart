@@ -20,7 +20,7 @@ class MyApp extends StatelessWidget {
         useMaterial3: true,
       ),
       home: ThemeManagerPlus<AppTheme>(
-          currentTheme: lightTheme,
+          currentTheme: Darktheme,
           darkTheme: Darktheme,
           lightTheme: lightTheme,
           child: const MyHomePage(title: 'Flutter Demo Home Page')),
@@ -116,10 +116,35 @@ class _MyHomePageState extends State<MyHomePage> {
         ),
       ),
       floatingActionButton: FloatingActionButton(
-        onPressed: _incrementCounter,
+        onPressed: () {
+          Navigator.push(
+              context,
+              MaterialPageRoute(
+                  builder: (_) => SeconScreen(
+                        myName: "Testing Navigation",
+                      )));
+        },
         tooltip: 'Increment',
         child: const Icon(Icons.add),
       ), // This trailing comma makes auto-formatting nicer for build methods.
+    );
+  }
+}
+
+class SeconScreen extends StatelessWidget {
+  String myName;
+  SeconScreen({required this.myName});
+
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      body: Center(
+        child: InkWell(
+            onTap: () {
+              Navigator.of(context).pop();
+            },
+            child: Text("${myName} ")),
+      ),
     );
   }
 }

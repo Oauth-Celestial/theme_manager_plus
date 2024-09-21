@@ -1,6 +1,6 @@
 name: theme_manager_plus
 description: "No More theme data. Customise your theme with your theme class "
-version: 0.0.3
+version: 0.0.4
 repository: "https://github.com/Oauth-Celestial/theme_manager_plus"
 
 environment:
